@@ -1,8 +1,11 @@
 <?php
-
+// opdracht 4 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PlanetController;
 
+Route::get('/', [PlanetController::class, 'index']);
+Route::get('/planets/{name}', [PlanetController::class, 'show']);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,8 +23,9 @@ use App\Http\Controllers\UserController;
 
 
 
-Route::get('//{name?}', function ($name = null) { //  hier mee zeg je van get route voor de web naam  en dat je iets kan direct zoeken als je de naam zoekt en als het niet bestaat geeft het aan de er niks over dat gegevens staat 
-    $planets = [
+
+//Route::get('//{name?}', function ($name = null) { //  hier mee zeg je van get route voor de web naam  en dat je iets kan direct zoeken als je de naam zoekt en als het niet bestaat geeft het aan de er niks over dat gegevens staat 
+    /*$planets = [
         [
             'name' => 'Mars',
             'description' => 'Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, being larger than only Mercury.'
@@ -47,10 +51,14 @@ Route::get('//{name?}', function ($name = null) { //  hier mee zeg je van get ro
         })->toArray();
     }
 
+    // dit controleert de namen wat in de array staat zodat je gegevens kunt krijgen anders niet  de funtie strtolower geeft aan dat niet hoofdletter gevoelig is   
+
     return view('welcome', [
         'planets' => $planets,
         'selected_name' => $name,
     ]);
+    // Als er een name parameter is doorgegeven dan is de $selected_name gelijk aan de doorgegeven naam.
 });
  //Route::Post ('/register',[UserController::class, 'register']);
 //Route::post ('/logout', [UserController::class, 'logout']);
+*/
